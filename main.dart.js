@@ -87481,7 +87481,7 @@ A.atq.prototype={
 $0(){},
 $S:0}
 A.atx.prototype={
-$1(a){return new A.oS(0.6,0.4,0.85,!1,new A.atw(this.a,a),null)},
+$1(a){return new A.oS(0.75,0.4,0.85,!1,new A.atw(this.a,a),null)},
 $S:564}
 A.atw.prototype={
 $2(a,b){var s=null,r=A.aA_(new A.as(24,24)),q=A.ar(s,s,B.o,s,s,new A.aX(B.ag,s,s,A.bi(12),s,s,B.y),s,5,s,s,s,s,s,40),p=A.D(s,16,s),o=A.J("Your Event Ticket",s,s,s,A.Q(s,s,s,s,s,s,s,s,s,s,s,18,s,s,B.u,s,s,!0,s,s,s,s,s,s,s,s),s,s),n=A.D(s,20,s),m=A.D(s,24,s),l=A.h9(B.ag,1),k=A.bi(12),j=this.a,i=t.p
