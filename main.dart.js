@@ -95844,7 +95844,7 @@ return A.a0(A.a([A.af(A.a([B.a4j,B.a3H,B.mu,new A.DI(new A.axN(this.a,a),null)],
 $S:625}
 A.axN.prototype={
 $1(a){A.a4j().$1("OTP: "+a)
-new A.Ab(A.aHK(null),"http://localhost:3000").CQ($.aSY,a).wP(new A.axJ(this.a,this.b))},
+new A.Ab(A.aHK(null),"https://api.ticgetz.com").CQ($.aSY,a).wP(new A.axJ(this.a,this.b))},
 $S:24}
 A.axJ.prototype={
 $1(a){var s,r,q,p,o=this,n=null,m="operation",l=J.iA(a)
@@ -95894,7 +95894,7 @@ p.P(new A.axH(p))
 s=A.aHK(null)
 r=p.e
 q=p.w===B.k5?"whatsapp":"sms"
-new A.Ab(s,"http://localhost:3000").Cv(r,q).wP(new A.axI(p))},
+new A.Ab(s,"https://api.ticgetz.com").Cv(r,q).wP(new A.axI(p))},
 $S:0}
 A.axH.prototype={
 $0(){var s=this.a
@@ -95929,7 +95929,7 @@ A.axU.prototype={
 $1(a){return A.af(A.a([new A.Dm(new A.axK(a),null)],t.p),B.j,B.i,B.ay)},
 $S:59}
 A.axK.prototype={
-$1(a){new A.Ab(A.aHK(null),"http://localhost:3000").CN(A.aKb("AUTH_TOKEN"),a).wP(new A.axF(this.a))},
+$1(a){new A.Ab(A.aHK(null),"https://api.ticgetz.com").CN(A.aKb("AUTH_TOKEN"),a).wP(new A.axF(this.a))},
 $S:24}
 A.axF.prototype={
 $1(a){var s=J.iA(a)
