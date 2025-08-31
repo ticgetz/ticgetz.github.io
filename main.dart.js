@@ -97789,7 +97789,7 @@ $1(a){var s=t.p
 return A.Z(A.a([A.ae(A.a([B.CE,B.CD,B.dU,A.aRp(new A.aAb(this.a,a))],s),B.x,B.h,B.am)],s),B.j,B.h,B.e)},
 $S:624}
 A.aAb.prototype={
-$1(a){new A.lS(A.o0(null),"http://localhost:3000").xl($.aWh,a).m_(new A.aA4(this.a,this.b))},
+$1(a){new A.lS(A.o0(null),"https://api.ticgetz.com").xl($.aWh,a).m_(new A.aA4(this.a,this.b))},
 $S:22}
 A.aA4.prototype={
 $1(a){var s=this,r=null,q="fullName",p=J.fy(a)
@@ -97835,7 +97835,7 @@ p.M(new A.aA2(p))
 s=A.o0(null)
 r=p.e
 q=p.w===B.hq?"whatsapp":"sms"
-new A.lS(s,"http://localhost:3000").wZ(r,q).m_(new A.aA3(p))},
+new A.lS(s,"https://api.ticgetz.com").wZ(r,q).m_(new A.aA3(p))},
 $S:0}
 A.aA2.prototype={
 $0(){var s=this.a
@@ -97870,7 +97870,7 @@ A.aAi.prototype={
 $1(a){return A.ae(A.a([A.aRg(new A.aA5(a))],t.p),B.j,B.h,B.am)},
 $S:37}
 A.aA5.prototype={
-$1(a){new A.lS(A.o0(null),"http://localhost:3000").xh(A.fx("AUTH_TOKEN"),a).m_(new A.aA0(this.a))},
+$1(a){new A.lS(A.o0(null),"https://api.ticgetz.com").xh(A.fx("AUTH_TOKEN"),a).m_(new A.aA0(this.a))},
 $S:22}
 A.aA0.prototype={
 $1(a){var s="fullName",r=null,q=J.fy(a)
@@ -98112,7 +98112,7 @@ A.azR.prototype={
 $1(a){return A.ae(A.a([new A.k(null,this.b*0.08,null,null),B.CE,B.CD,B.dU,A.aRp(new A.azO(this.a,a))],t.p),B.x,B.h,B.e)},
 $S:37}
 A.azO.prototype={
-$1(a){new A.lS(A.o0(null),"http://localhost:3000").xl($.aWg,a).m_(new A.azH(this.a,this.b))},
+$1(a){new A.lS(A.o0(null),"https://api.ticgetz.com").xl($.aWg,a).m_(new A.azH(this.a,this.b))},
 $S:22}
 A.azH.prototype={
 $1(a){var s=this,r=null,q="fullName",p=J.fy(a)
@@ -98158,7 +98158,7 @@ n.M(new A.azE(n))
 if(n.e.length===10){s=A.o0(o)
 r=n.e
 q=n.w===B.hq?"whatsapp":"sms"
-new A.lS(s,"http://localhost:3000").wZ(r,q).m_(new A.azF(n))}else{n=$.fb()
+new A.lS(s,"https://api.ticgetz.com").wZ(r,q).m_(new A.azF(n))}else{n=$.fb()
 s=A.aLd()
 r=n.x
 r===$&&A.b()
@@ -98193,7 +98193,7 @@ A.azT.prototype={
 $1(a){return A.ae(A.a([new A.k(null,this.a*0.08,null,null),A.aRg(new A.azI(a))],t.p),B.j,B.h,B.e)},
 $S:37}
 A.azI.prototype={
-$1(a){new A.lS(A.o0(null),"http://localhost:3000").xh(A.fx("AUTH_TOKEN"),a).m_(new A.azD(this.a))},
+$1(a){new A.lS(A.o0(null),"https://api.ticgetz.com").xh(A.fx("AUTH_TOKEN"),a).m_(new A.azD(this.a))},
 $S:22}
 A.azD.prototype={
 $1(a){var s="fullName",r=null,q=J.fy(a)
@@ -98219,7 +98219,7 @@ A.t5.prototype={
 K(){return new A.a0i(new A.br(null,t.sW),A.a(["Bangalore","Mumbai","Delhi","Hyderabad"],t.s))}}
 A.a0i.prototype={
 a9(){this.aq()
-new A.lS(A.o0(null),"http://localhost:3000").xq(A.fx("AUTH_TOKEN")).m_(new A.aCD())},
+new A.lS(A.o0(null),"https://api.ticgetz.com").xq(A.fx("AUTH_TOKEN")).m_(new A.aCD())},
 C(a){var s=null,r=t.w,q=A.aI(a,s,r).w.a.a,p=A.aI(a,s,r).w.a.b
 r=t.p
 return A.f4(this.uN(!0),s,A.a7(s,A.hf(A.ae(A.a([new A.k(s,p*0.03,s,s),new A.k(q*0.6,s,new A.Sb("Aditya M",7,0,0,new A.aCx(),B.nE,B.Dn,250,s),s),new A.k(s,p*0.02,s,s),A.Z(A.a([new A.k(q*0.2,s,A.ae(A.a([new A.Eq(new A.aCy(this),s)],r),B.j,B.h,B.e),s),new A.k(q*0.01,s,s,s),new A.k(q*0.4,s,A.ae(A.a([A.aKO(A.a4([0,new A.aCz(),1,new A.aCA(),10,new A.aCB()],t.S,t.Ab),a,new A.aCC(this))],r),B.j,B.h,B.e),s)],r),B.x,B.Z,B.e)],r),B.j,B.h,B.e),s,s,B.a2),B.k,s,s,s,s,p,s,s,s,s,s,q),s,s,s,s)},
