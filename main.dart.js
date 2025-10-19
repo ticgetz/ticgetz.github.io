@@ -99988,16 +99988,14 @@ A.adl.prototype={
 $1(a){return new A.jh(this.a.c,!0,null)},
 $S:58}
 A.VZ.prototype={
-C(a){var s,r,q,p,o="assets/profile2.jpg",n="assets/profile3.jpg",m=this.c
-if(m!=null&&m.length!==0){m.toString
-s=A.a7(m).i("am<1,aP<l,@>>")
-r=A.aj(new A.am(m,new A.ata(),s),!0,s.i("aG.E"))}else{m=t.s
+C(a){var s,r,q,p="assets/profile2.jpg",o="assets/profile3.jpg",n=this.c
+if(n!=null&&n.length!==0){n.toString
+s=A.a7(n).i("am<1,aP<l,@>>")
+r=A.aj(new A.am(n,new A.ata(),s),!0,s.i("aG.E"))}else{n=t.s
 s=t.N
 q=t.z
-r=A.a([A.a2(["date","01","month","JAN","title","Music in the Park: Summer Concert","location","Central Park, New York","datetime","January 01, 2023 - 06:00 PM","price","\u20b999.99","organizer","World Fusion Events","category","Dance & Music","image","assets/banner_1.png","attendees",A.a(["assets/profile1.jpg",o,n,"assets/profile4.jpg"],m)],s,q),A.a2(["date","14","month","FEB","title","Valentine Vibes: Acoustic Night","location","Brooklyn Bowl, NYC","datetime","February 14, 2023 - 08:00 PM","price","\u20b979.00","organizer","HeartBeat Studios","category","Live Music","image","assets/banner_2.png","attendees",A.a([o,n,"assets/profile5.jpg"],m)],s,q),A.a2(["date","18","month","FEB","title","Sunset Chill: Rooftop DJ Session","location","Skyline Terrace, Los Angeles","datetime","February 18, 2023 - 07:30 PM","price","\u20b979.00","organizer","Elevate Nights","category","Party & Chill","image","assets/banner_3.png"],s,q)],t.H7)}m=A.aJ(a,null,t.w).w.a.a>=480
-p=m?2:1
-m=m?342:362
-return A.aO6(new A.Gl(p,12,12,1,m),new A.atb(r),r.length,B.i4,B.fZ,!0)}}
+r=A.a([A.a2(["date","01","month","JAN","title","Music in the Park: Summer Concert","location","Central Park, New York","datetime","January 01, 2023 - 06:00 PM","price","\u20b999.99","organizer","World Fusion Events","category","Dance & Music","image","assets/banner_1.png","attendees",A.a(["assets/profile1.jpg",p,o,"assets/profile4.jpg"],n)],s,q),A.a2(["date","14","month","FEB","title","Valentine Vibes: Acoustic Night","location","Brooklyn Bowl, NYC","datetime","February 14, 2023 - 08:00 PM","price","\u20b979.00","organizer","HeartBeat Studios","category","Live Music","image","assets/banner_2.png","attendees",A.a([p,o,"assets/profile5.jpg"],n)],s,q),A.a2(["date","18","month","FEB","title","Sunset Chill: Rooftop DJ Session","location","Skyline Terrace, Los Angeles","datetime","February 18, 2023 - 07:30 PM","price","\u20b979.00","organizer","Elevate Nights","category","Party & Chill","image","assets/banner_3.png"],s,q)],t.H7)}n=A.aJ(a,null,t.w).w.a.a>=480?342:362
+return A.aO6(new A.Gl(2,12,12,1,n),new A.atb(r),r.length,B.i4,B.fZ,!0)}}
 A.ata.prototype={
 $1(a2){var s,r,q,p,o,n,m,l,k,j,i,h,g="venue",f="tickets",e="bannerImage",d=J.aL(a2),c=d.h(a2,"startDate"),b=J.aM(c==null?"":c),a="",a0="",a1=""
 if(J.bO(b)>=8)try{s=A.dD(J.hK(b,0,4),null)
