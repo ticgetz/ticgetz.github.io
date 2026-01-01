@@ -99997,7 +99997,7 @@ f=o==null?A.a([],t.T):o
 p=A.a4(f).i("an<1,aO<l,@>>")
 k=A.a2(["event",n,"tickets",A.ag(new A.an(f,new A.awt(q),p),!0,p.i("aI.E")),"totals",A.a2(["subtotal",i,"fee",h,"discount",g,"total",i+h-g],m,t.i),"metadata",A.a2(["applied_promo",q.x,"created_at",new A.ds(Date.now(),0,!1).azp()],m,t.ob)],m,l)
 j=A.ee("AUTH_TOKEN")
-l=new A.fe(A.fV(null),"http://localhost:3000").Bq(k,j).l7(new A.awu())
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").Bq(k,j).l7(new A.awu())
 s=2
 return A.a_(l,$async$zi)
 case 2:return A.O(null,r)}})
@@ -101055,7 +101055,7 @@ zx(){var s=0,r=A.Q(t.H),q=1,p=[],o=[],n=this,m,l
 var $async$zx=A.R(function(a,b){if(a===1){p.push(b)
 s=q}while(true)switch(s){case 0:n.I(new A.aAS(n))
 q=2
-l=new A.fe(A.fV(null),"http://localhost:3000").tJ()
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").tJ()
 s=5
 return A.a_(t.L0.b(l)?l:A.eM(l,t.z),$async$zx)
 case 5:m=b
@@ -101239,7 +101239,7 @@ zq(){var s=0,r=A.Q(t.H),q=1,p=[],o=[],n=this,m,l
 var $async$zq=A.R(function(a,b){if(a===1){p.push(b)
 s=q}while(true)switch(s){case 0:n.I(new A.aBe(n))
 q=2
-l=new A.fe(A.fV(null),"http://localhost:3000").tJ()
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").tJ()
 s=5
 return A.a_(t.L0.b(l)?l:A.eM(l,t.z),$async$zq)
 case 5:m=b
@@ -101477,7 +101477,7 @@ if(J.bF(i)!==10){A.ho("Enter a valid 10-digit mobile number")
 s=1
 break}n.I(new A.aCp(n))
 p=4
-l=new A.fe(A.fV(null),"http://localhost:3000").tg(i,n.ch)
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").tg(i,n.ch)
 k=t.z
 s=7
 return A.a_(t.L0.b(l)?l:A.eM(l,k),$async$uU)
@@ -101519,7 +101519,7 @@ app(a){var s=0,r=A.Q(t.H),q,p=2,o=[],n=this,m,l,k,j,i
 var $async$va=A.R(function(b,c){if(b===1){o.push(c)
 s=p}while(true)switch(s){case 0:n.I(new A.aCx(n))
 p=4
-l=new A.fe(A.fV(null),"http://localhost:3000").tu(n.r,a)
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").tu(n.r,a)
 k=t.z
 s=7
 return A.a_(t.L0.b(l)?l:A.eM(l,k),$async$va)
@@ -101565,7 +101565,7 @@ if(J.bF(i)===0){A.ho("Please enter full name")
 s=1
 break}n.I(new A.aCt(n))
 p=4
-l=new A.fe(A.fV(null),"http://localhost:3000").tt(n.r,i)
+l=new A.fe(A.fV(null),"https://api.ticgetz.com").tt(n.r,i)
 k=t.z
 s=7
 return A.a_(t.L0.b(l)?l:A.eM(l,k),$async$qY)
@@ -101786,7 +101786,7 @@ A.aDK.prototype={
 $1(a){return new A.dV(B.aT,B.bC,B.aA,A.a([B.fs,B.cn],t.O),null,null).JK(0,a)},
 $S:108}
 A.aDL.prototype={
-$1(a){new A.fe(A.fV(null),"http://localhost:3000").tu($.b_R,a).l7(new A.aDC(this.a,this.b))},
+$1(a){new A.fe(A.fV(null),"https://api.ticgetz.com").tu($.b_R,a).l7(new A.aDC(this.a,this.b))},
 $S:10}
 A.aDC.prototype={
 $1(a){var s=this,r=null,q="fullName",p=J.fv(a)
@@ -101834,7 +101834,7 @@ p.I(new A.aDA(p))
 s=A.fV(null)
 r=p.e
 q=p.w===B.hQ?"whatsapp":"sms"
-new A.fe(s,"http://localhost:3000").tg(r,q).l7(new A.aDB(p))},
+new A.fe(s,"https://api.ticgetz.com").tg(r,q).l7(new A.aDB(p))},
 $S:0}
 A.aDA.prototype={
 $0(){var s=this.a
@@ -101869,7 +101869,7 @@ A.aDS.prototype={
 $1(a){return A.a3(A.a([A.aVO(new A.aDD(a))],t.p),B.i,B.h,B.as,B.n)},
 $S:32}
 A.aDD.prototype={
-$1(a){new A.fe(A.fV(null),"http://localhost:3000").tt(A.ee("AUTH_TOKEN"),a).l7(new A.aDy(this.a))},
+$1(a){new A.fe(A.fV(null),"https://api.ticgetz.com").tt(A.ee("AUTH_TOKEN"),a).l7(new A.aDy(this.a))},
 $S:10}
 A.aDy.prototype={
 $1(a){var s="fullName",r=null,q=J.fv(a)
@@ -102169,7 +102169,7 @@ A.aDo.prototype={
 $1(a){return A.a3(A.a([new A.k(null,this.b*0.08,null,null),B.a6N,B.a68,B.jy,A.aVZ(new A.aDl(this.a,a))],t.p),B.w,B.h,B.e,B.n)},
 $S:32}
 A.aDl.prototype={
-$1(a){new A.fe(A.fV(null),"http://localhost:3000").tu($.b_Q,a).l7(new A.aDe(this.a,this.b))},
+$1(a){new A.fe(A.fV(null),"https://api.ticgetz.com").tu($.b_Q,a).l7(new A.aDe(this.a,this.b))},
 $S:10}
 A.aDe.prototype={
 $1(a){var s=this,r=null,q="fullName",p=J.fv(a)
@@ -102206,7 +102206,7 @@ p.I(new A.aDb(p))
 if(p.e.length===10){s=A.fV(null)
 r=p.e
 q=p.w===B.hQ?"whatsapp":"sms"
-new A.fe(s,"http://localhost:3000").tg(r,q).l7(new A.aDc(p))}else A.ho("Enter a Valid Number")},
+new A.fe(s,"https://api.ticgetz.com").tg(r,q).l7(new A.aDc(p))}else A.ho("Enter a Valid Number")},
 $S:0}
 A.aDb.prototype={
 $0(){var s=this.a
@@ -102243,7 +102243,7 @@ A.aDq.prototype={
 $1(a){return A.a3(A.a([new A.k(null,this.a*0.08,null,null),A.aVO(new A.aDf(a))],t.p),B.i,B.h,B.e,B.n)},
 $S:32}
 A.aDf.prototype={
-$1(a){new A.fe(A.fV(null),"http://localhost:3000").tt(A.ee("AUTH_TOKEN"),a).l7(new A.aDa(this.a))},
+$1(a){new A.fe(A.fV(null),"https://api.ticgetz.com").tt(A.ee("AUTH_TOKEN"),a).l7(new A.aDa(this.a))},
 $S:10}
 A.aDa.prototype={
 $1(a){var s="fullName",r=null,q=J.fv(a)
@@ -102289,7 +102289,7 @@ A.tL.prototype={
 L(){return new A.a1u(new A.bs(null,t.sW),A.a(["Bangalore","Mumbai","Delhi","Hyderabad"],t.s))}}
 A.a1u.prototype={
 a8(){this.ao()
-new A.fe(A.fV(null),"http://localhost:3000").xY(A.ee("AUTH_TOKEN")).l7(new A.aGk())},
+new A.fe(A.fV(null),"https://api.ticgetz.com").xY(A.ee("AUTH_TOKEN")).l7(new A.aGk())},
 C(a){var s=null,r=t.w,q=A.aJ(a,s,r).w.a.a,p=A.aJ(a,s,r).w.a.b
 r=t.p
 return A.e9(this.vl(!0),s,new A.k(q,p,A.f4(A.a3(A.a([new A.k(s,p*0.03,s,s),new A.k(q*0.6,s,new A.Te("Aditya M",7,0,0,new A.aGe(),B.o6,B.Ek,250,s),s),new A.k(s,p*0.02,s,s),A.Z(A.a([new A.k(q*0.2,s,A.a3(A.a([new A.Fc(new A.aGf(this),s)],r),B.i,B.h,B.e,B.n),s),new A.k(q*0.01,s,s,s),new A.k(q*0.4,s,A.a3(A.a([A.aP8(A.a2([0,new A.aGg(),1,new A.aGh(),10,new A.aGi()],t.S,t.Ab),a,new A.aGj(this))],r),B.i,B.h,B.e,B.n),s)],r),B.w,B.Q,B.e)],r),B.i,B.h,B.e,B.n),s,s,s,B.a3),s),s,s,!1,s,s,s,s)},
@@ -103130,7 +103130,7 @@ n.I(new A.aL4(n))
 s=1
 break}n.I(new A.aL5(n))
 A.dg("Fetching order history page "+n.z+"...")
-h=new A.fe(A.fV(null),"http://localhost:3000").tE(m,n.z)
+h=new A.fe(A.fV(null),"https://api.ticgetz.com").tE(m,n.z)
 s=7
 return A.a_(t.L0.b(h)?h:A.eM(h,t.z),$async$uJ)
 case 7:l=c
@@ -103178,7 +103178,7 @@ if(m==null||J.bF(m)===0){n.I(new A.aKW(n))
 s=1
 break}l=n.z+1
 A.dg("Loading more orders - page "+A.m(l)+"...")
-g=new A.fe(A.fV(null),"http://localhost:3000").tE(m,l)
+g=new A.fe(A.fV(null),"https://api.ticgetz.com").tE(m,l)
 s=7
 return A.a_(t.L0.b(g)?g:A.eM(g,t.z),$async$zy)
 case 7:k=b
@@ -103688,7 +103688,7 @@ s=p}while(true)switch(s){case 0:if(n.a.c.length===0){n.I(new A.aLL(n))
 s=1
 break}p=4
 m=A.ee("AUTH_TOKEN")
-j=new A.fe(A.fV(null),"http://localhost:3000").DS(n.a.c,m)
+j=new A.fe(A.fV(null),"https://api.ticgetz.com").DS(n.a.c,m)
 s=7
 return A.a_(t.L0.b(j)?j:A.eM(j,t.z),$async$AA)
 case 7:l=b
