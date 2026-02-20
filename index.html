@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- App Version for Cache Busting -->
+  <meta name="app-version" content="1.0.1">
+  
+  <!-- Razorpay Checkout Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  
+  <!-- Cashfree SDK -->
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+  
+  <!-- HEIC to JPEG converter for iOS image support -->
+  <script src="https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js"></script>
+  
+  <!-- Google Maps JavaScript API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGfDrG_hkucch9d2rW4KKNeJzheynJWbE"></script>
+
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  
+  <!-- Primary Meta Tags -->
+  <title>Ticgetz - Book Events & Experiences</title>
+  <meta name="title" content="Ticgetz - Book Events & Experiences">
+  <meta name="description" content="Discover and book amazing events, concerts, workshops and experiences near you. Get free gold & silver rewards on special events!">
+  <meta name="keywords" content="events, tickets, concerts, workshops, experiences, ticgetz, gold rewards, silver rewards">
+  <meta name="author" content="Ticgetz">
+  <meta name="theme-color" content="#6B46C1">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ticgetz.com/">
+  <meta property="og:title" content="Ticgetz - Book Events & Experiences">
+  <meta property="og:description" content="Discover and book amazing events, concerts, workshops and experiences near you. Get free gold & silver rewards!">
+  <meta property="og:image" content="https://ticgetz.com/assets/assets/images/ticgetz_favicon.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:site_name" content="Ticgetz">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="https://ticgetz.com/">
+  <meta property="twitter:title" content="Ticgetz - Book Events & Experiences">
+  <meta property="twitter:description" content="Discover and book amazing events, concerts, workshops and experiences near you. Get free gold & silver rewards!">
+  <meta property="twitter:image" content="https://ticgetz.com/assets/assets/images/ticgetz_favicon.png">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Ticgetz">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <link rel="manifest" href="manifest.json">
+  
+  <!-- Prevent caching of index.html and service worker -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+</head>
+
+<body>
+  <!-- Version Management & Auto-Refresh -->
+  <script>
+    (function() {
+      const CURRENT_VERSION = document.querySelector('meta[name="app-version"]').getAttribute('content');
+      const VERSION_KEY = 'ticgetz_app_version';
+      const LAST_VERSION = localStorage.getItem(VERSION_KEY);
+      
+      console.log(`📱 App Version: ${CURRENT_VERSION}, Last Version: ${LAST_VERSION}`);
+      
+      // If version mismatch, clear cache and reload
+      if (LAST_VERSION && LAST_VERSION !== CURRENT_VERSION) {
+        console.log(`🔄 App updated from ${LAST_VERSION} to ${CURRENT_VERSION}. Clearing cache and reloading...`);
+        
+        // Clear all localStorage data related to cache
+        const keysToKeep = ['AUTH_TOKEN']; // Keep critical auth data
+        const allKeys = Object.keys(localStorage);
+        allKeys.forEach(key => {
+          if (!keysToKeep.includes(key)) {
+            localStorage.removeItem(key);
+          }
+        });
+        
+        // Store new version
+        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
+        
+        // Clear service worker cache
+        if ('serviceWorker' in navigator) {
+          caches.keys().then(cacheNames => {
+            cacheNames.forEach(cacheName => {
+              caches.delete(cacheName).then(() => {
+                console.log(`🗑️ Cleared cache: ${cacheName}`);
+              });
+            });
+          });
+        }
+        
+        // Hard reload the page to bypass browser cache
+        window.location.replace(window.location.href);
+      } else if (!LAST_VERSION) {
+        // First time visit, store version
+        console.log(`✨ First visit. Storing version: ${CURRENT_VERSION}`);
+        localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
+      }
+    })();
+  </script>
+
+  <script>
+    window.initiateCashfreePayment = function (sessionId) {
+      const cashfree = Cashfree({ mode: "production" });
+      cashfree.checkout({
+        paymentSessionId: sessionId,
+        redirectTarget: "_self",
+      });
+    }
+
+    window.openRazorpayCheckout = function (options) {
+      var rzp = new Razorpay(options);
+      rzp.on('payment.failed', function (response) {
+        console.error('Razorpay payment failed:', response.error);
+        if (options.modal && options.modal.ondismiss) {
+          options.modal.ondismiss();
+        }
+      });
+      rzp.open();
+    }
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+
+</html>
