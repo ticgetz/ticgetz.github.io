@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Public Opinion Poll · Ticgetz AI Museum · One Earth, One Heart</title>
+<meta name="description" content="Make your voice heard. A public opinion poll on India's first Brain-Shaped AI Museum and Innovation Experience Center." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d0608;
+  --ink-deeper: #08040580;
+  --ink-mid: #1a0d10;
+  --ink-soft: #251418;
+  --paper: #f5ede4;
+  --paper-warm: #ebe0d0;
+  --paper-deep: #e3d6c2;
+  --paper-line: rgba(13, 6, 8, 0.12);
+  --paper-text: #1a0d10;
+  --paper-text-soft: rgba(13, 6, 8, 0.72);
+  --paper-text-mute: rgba(13, 6, 8, 0.55);
+  --red: #b81f2e;
+  --red-bright: #d62836;
+  --red-deep: #8a1622;
+  --red-soft: #e87178;
+  --red-tint: rgba(184, 31, 46, 0.08);
+  --red-tint-strong: rgba(184, 31, 46, 0.16);
+  --rule: rgba(245, 237, 228, 0.12);
+  --rule-strong: rgba(245, 237, 228, 0.26);
+  --saffron: #d99645;
+  --green: #0f6b4a;
+  --display: 'Fraunces', 'Times New Roman', serif;
+  --sans: 'Inter Tight', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* grain texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─────────── TOP BAR ─────────── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 60;
+  padding: 18px 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13, 6, 8, 0.82);
+  border-bottom: 1px solid var(--rule);
+}
+.topbar-inner {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.poll-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--display);
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark {
+  width: 50px; height: 50px;
+  object-fit: contain;
+  display: block;
+  background: #ffffff;
+  padding: 6px;
+  border-radius: 13px;
+  box-shadow: 0 0 16px rgba(214, 40, 54, 0.45);
+}
+.brand-name {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--paper);
+}
+.brand-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-soft);
+}
+.topbar-back {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--paper);
+  opacity: 0.65;
+  text-decoration: none;
+  transition: opacity 0.25s, color 0.25s;
+}
+.topbar-back:hover { opacity: 1; color: var(--red-soft); }
+
+/* progress bar */
+.progress-track {
+  position: fixed;
+  top: 64px;
+  left: 0; right: 0;
+  height: 2px;
+  background: rgba(245, 237, 228, 0.08);
+  z-index: 55;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--red-deep), var(--red), var(--red-bright));
+  width: 0%;
+  transition: width 0.5s var(--ease-out);
+  box-shadow: 0 0 12px rgba(214, 40, 54, 0.6);
+}
+
+/* ─────────── STAGE ─────────── */
+.stage {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 66px;
+  overflow: hidden;
+}
+
+.stage-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(184, 31, 46, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 90%, rgba(184, 31, 46, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, var(--ink) 0%, #150709 100%);
+  z-index: 0;
+}
+
+.stage-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245, 237, 228, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 237, 228, 0.035) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+  animation: grid-drift 60s linear infinite;
+  z-index: 0;
+}
+
+.stage-hero-bg {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out);
+  pointer-events: none;
+}
+.stage-hero-bg img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(1.18) saturate(1.05);
+  transform: scale(1.06);
+}
+.stage-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 90% at 50% 50%, rgba(13,6,8,0.72) 0%, rgba(13,6,8,0.45) 55%, rgba(13,6,8,0.25) 100%),
+    linear-gradient(180deg, rgba(13,6,8,0.45) 0%, rgba(13,6,8,0.2) 35%, rgba(13,6,8,0.92) 100%);
+  pointer-events: none;
+}
+.stage:has(.slide[data-q="intro"].active) .stage-hero-bg { opacity: 1; }
+@keyframes grid-drift {
+  0% { background-position: 0 0; }
+  100% { background-position: 80px 80px; }
+}
+
+/* ─────────── SLIDES ─────────── */
+.slides {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 60px 40px 60px;
+}
+.slide {
+  display: none;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+  min-height: calc(100vh - 130px);
+}
+.slide.active {
+  display: grid;
+  animation: slide-in 0.7s var(--ease-out);
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.q-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red-soft);
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.q-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--red-soft);
+}
+
+.q-title {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(24px, 3vw, 44px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+}
+.q-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--red-soft);
+  position: relative;
+}
+.q-title em::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+.q-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(245, 237, 228, 0.72);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+/* options */
+.options {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+.options.single { grid-template-columns: 1fr; }
+.option {
+  position: relative;
+  padding: 18px 22px;
+  background: rgba(245, 237, 228, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.option .dot {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--rule-strong);
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.25s var(--ease-out);
+}
+.option:hover {
+  background: rgba(184, 31, 46, 0.08);
+  border-color: rgba(232, 113, 120, 0.4);
+  transform: translateY(-2px);
+}
+.option:hover .dot { border-color: var(--red-soft); }
+.option.selected {
+  background: rgba(184, 31, 46, 0.16);
+  border-color: var(--red-soft);
+  box-shadow: 0 8px 24px rgba(184, 31, 46, 0.18);
+}
+.option.selected .dot {
+  border-color: var(--red-soft);
+  background: var(--red);
+}
+.option.selected .dot::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--paper);
+}
+
+/* details form (name / mobile / designation — admin-toggled) */
+.details-form {
+  display: grid;
+  gap: 16px;
+  max-width: 520px;
+}
+.field { display: flex; flex-direction: column; gap: 8px; }
+.field-label {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: rgba(245, 237, 228, 0.8);
+}
+.field-label .req { color: var(--red-soft); margin-left: 2px; }
+.field input {
+  width: 100%;
+  padding: 15px 18px;
+  background: rgba(245, 237, 228, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  color: var(--paper);
+  font-family: var(--sans);
+  font-size: 15px;
+  transition: all 0.25s var(--ease-out);
+}
+.field input::placeholder { color: rgba(245, 237, 228, 0.35); }
+.field input:focus {
+  outline: none;
+  border-color: var(--red-soft);
+  background: rgba(184, 31, 46, 0.1);
+  box-shadow: 0 8px 24px rgba(184, 31, 46, 0.14);
+}
+.field input.invalid { border-color: var(--red-bright); }
+.field-error {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--red-soft);
+}
+
+/* visual panel */
+.q-visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  background: linear-gradient(135deg, rgba(184, 31, 46, 0.18), rgba(13, 6, 8, 0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.q-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(232, 113, 120, 0.28), transparent 55%),
+    radial-gradient(circle at 70% 75%, rgba(217, 150, 69, 0.18), transparent 55%);
+}
+.q-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(245, 237, 228, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 237, 228, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mix-blend-mode: overlay;
+}
+.q-emoji {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(120px, 18vw, 220px);
+  filter: drop-shadow(0 18px 36px rgba(0,0,0,0.45));
+  animation: float 6s ease-in-out infinite;
+}
+.q-emoji-img {
+  position: relative;
+  z-index: 2;
+  width: clamp(170px, 26vw, 320px);
+  max-width: 82%;
+  max-height: 82%;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 36px rgba(0,0,0,0.45));
+  animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.q-visual-caption {
+  position: absolute;
+  bottom: 22px;
+  left: 24px;
+  right: 24px;
+  z-index: 3;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 237, 228, 0.75);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.q-visual-caption .dot-row {
+  display: flex;
+  gap: 6px;
+}
+.q-visual-caption .dot-row span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 237, 228, 0.3);
+}
+.q-visual-caption .dot-row span.on {
+  background: var(--red-soft);
+  box-shadow: 0 0 8px var(--red-soft);
+}
+
+/* nav */
+.slide-nav {
+  margin-top: 28px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.q-nav-slot { min-height: 1px; }
+.btn {
+  padding: 14px 26px;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: all 0.3s var(--ease-out);
+  border: 1px solid var(--rule-strong);
+  background: transparent;
+  color: var(--paper);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn:hover { background: rgba(245, 237, 228, 0.06); }
+.btn:disabled { cursor: not-allowed; }
+.btn-primary {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--paper);
+  box-shadow: 0 6px 18px rgba(214, 40, 54, 0.32);
+}
+.btn-primary:hover {
+  background: var(--red-bright);
+  border-color: var(--red-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(214, 40, 54, 0.4);
+}
+.btn-primary:disabled {
+  background: rgba(184, 31, 46, 0.35);
+  border-color: rgba(232, 113, 120, 0.4);
+  color: rgba(245, 237, 228, 0.7);
+  transform: none;
+  box-shadow: none;
+}
+
+.q-counter {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(245, 237, 228, 0.55);
+}
+.q-counter strong { color: var(--paper); font-weight: 500; }
+
+/* final slide */
+.final {
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 130px);
+  padding: 8px 0;
+}
+.final.active { display: flex; animation: slide-in 0.7s var(--ease-out); }
+.final-mark {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--red-bright), var(--red) 60%, var(--red-deep));
+  box-shadow: 0 0 60px rgba(214, 40, 54, 0.5);
+  margin-bottom: 16px;
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+}
+.final-mark svg { width: 38px; height: 38px; color: var(--paper); }
+.final-eyebrow {
+  font-family: var(--mono);
+  font-size: 16px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--red-soft);
+  margin-bottom: 6px;
+}
+.final h1 {
+  font-family: var(--display);
+  font-weight: 300;
+  font-size: clamp(40px, 5.4vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  max-width: 14ch;
+}
+.final h1 em { font-style: italic; font-weight: 400; color: var(--red-soft); }
+.final p strong { color: var(--paper); font-weight: 600; }
+.final p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(245, 237, 228, 0.78);
+  max-width: 540px;
+  margin: 0 auto 22px;
+}
+.stage:has(.slide[data-q="intro"].active) .final h1 {
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.55);
+}
+.stage:has(.slide[data-q="intro"].active) .final p {
+  color: rgba(245, 237, 228, 0.94);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.75);
+}
+.stage:has(.slide[data-q="intro"].active) .final-eyebrow {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+.final-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* intro: trust / effort-expectation chips */
+.intro-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin: 22px 0 0;
+}
+.intro-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: rgba(245, 237, 228, 0.9);
+  background: rgba(245, 237, 228, 0.05);
+  border: 1px solid var(--rule);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.intro-chip svg { color: var(--red-soft); flex-shrink: 0; }
+.stage:has(.slide[data-q="intro"].active) .intro-chip {
+  background: rgba(13, 6, 8, 0.42);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6);
+}
+
+/* intro: louder primary CTA */
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 16px;
+}
+.slide[data-q="intro"].active .btn-primary {
+  animation: cta-pulse 2.6s var(--ease-out) infinite;
+}
+.slide[data-q="intro"].active .btn-primary:hover { animation: none; }
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 6px 18px rgba(214, 40, 54, 0.32); }
+  50% { box-shadow: 0 8px 30px rgba(214, 40, 54, 0.55), 0 0 0 6px rgba(214, 40, 54, 0.08); }
+}
+/* de-emphasize the secondary action so the eye lands on the primary */
+.btn-ghost {
+  border-color: transparent;
+  background: transparent;
+  color: rgba(245, 237, 228, 0.72);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(245, 237, 228, 0.3);
+}
+.btn-ghost:hover {
+  background: transparent;
+  color: var(--paper);
+  text-decoration-color: var(--red-soft);
+}
+/* intro: live social proof (only shown once enough real responses exist) */
+.intro-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 22px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: rgba(245, 237, 228, 0.92);
+  background: rgba(13, 6, 8, 0.42);
+  border: 1px solid var(--rule);
+}
+.intro-social[hidden] { display: none; }
+.intro-social strong { color: var(--red-soft); font-weight: 600; }
+.live-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--red-soft);
+  box-shadow: 0 0 8px var(--red-soft);
+  animation: live-blink 1.8s ease-in-out infinite;
+}
+@keyframes live-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(0.8); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide[data-q="intro"].active .btn-primary { animation: none; }
+}
+
+/* summary chips */
+.summary {
+  margin-top: 26px;
+  max-width: 720px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  text-align: left;
+}
+.summary-row {
+  padding: 12px 16px;
+  background: rgba(245, 237, 228, 0.04);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+}
+.summary-row .k {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(245, 237, 228, 0.5);
+  margin-bottom: 4px;
+}
+.summary-row .v {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--paper);
+}
+
+/* ─────────── RESPONSIVE ─────────── */
+@media (max-width: 900px) {
+  .topbar-inner { padding: 0 20px; }
+  .slides { padding: 30px 20px 40px; }
+  .slide { grid-template-columns: 1fr; gap: 30px; min-height: auto; }
+  .slide.active { padding-top: 10px; }
+  .q-visual { aspect-ratio: 16 / 10; }
+  .q-emoji { font-size: clamp(96px, 22vw, 160px); }
+  .options { grid-template-columns: 1fr; }
+  .slide-nav { margin-top: 22px; }
+  .btn { padding: 12px 18px; font-size: 13px; }
+  .poll-title { font-size: 20px; }
+  .summary { grid-template-columns: 1fr; }
+}
+
+/* ─── Compact when vertical space is tight (poll popup iframe, short laptops) ───
+   Keeps the whole intro call-to-action on one screen, no scrolling. */
+@media (max-height: 760px) {
+  .topbar { padding: 11px 0; }
+  .brand-mark { width: 40px; height: 40px; }
+  .poll-title { font-size: 24px; }
+  .stage { padding-top: 54px; }
+  .slides { padding-top: 22px; padding-bottom: 26px; }
+  .slide { min-height: calc(100vh - 104px); }
+  .final { min-height: calc(100vh - 104px); }
+  .final-eyebrow { font-size: 13px; margin-bottom: 5px; }
+  .final h1 { font-size: clamp(26px, 4.4vw, 42px); margin-bottom: 10px; }
+  .final p { font-size: 15px; line-height: 1.5; margin-bottom: 16px; }
+  .intro-meta { margin: 16px 0 0; gap: 8px; }
+  .intro-chip { padding: 6px 12px; font-size: 11px; }
+  .intro-social { margin-bottom: 14px; padding: 7px 14px; font-size: 11.5px; }
+  .btn-lg { padding: 14px 30px; font-size: 15px; }
+}
+@media (max-height: 600px) {
+  .topbar { padding: 9px 0; }
+  .brand-mark { width: 36px; height: 36px; }
+  .poll-title { font-size: 21px; }
+  .stage { padding-top: 50px; }
+  .slides { padding-top: 14px; padding-bottom: 16px; }
+  .slide { min-height: calc(100vh - 80px); }
+  .final { min-height: calc(100vh - 80px); }
+  .final-eyebrow { font-size: 12px; margin-bottom: 4px; letter-spacing: 0.22em; }
+  .final h1 { font-size: clamp(22px, 4vw, 32px); margin-bottom: 8px; }
+  .final p { font-size: 13.5px; line-height: 1.45; margin-bottom: 12px; }
+  .intro-meta { margin: 12px 0 0; gap: 7px; }
+  .intro-chip { padding: 5px 11px; font-size: 10.5px; }
+  .intro-social { margin-bottom: 10px; padding: 6px 12px; font-size: 11px; }
+  .btn-lg { padding: 12px 26px; font-size: 14px; }
+  .final-actions { gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="/#/ai-museum" target="_top" class="brand">
+      <img class="brand-mark" src="/assets/assets/logo.png" alt="Ticgetz" />
+    </a>
+    <div class="poll-title">Public Opinion Poll</div>
+    <a href="/#/ai-museum" target="_top" class="topbar-back">← Back to Vision</a>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- STAGE -->
+<section class="stage">
+  <div class="stage-bg"></div>
+  <div class="stage-grid"></div>
+  <div class="stage-hero-bg">
+    <img src="/assets/assets/hero_museum.jpeg" alt="AI Museum architectural render">
+  </div>
+
+  <div class="slides" id="slides">
+
+    <!-- INTRO -->
+    <div class="slide active final" data-q="intro" style="text-align:center;">
+      <div class="final-eyebrow">India's First Brain-Shaped AI Museum</div>
+      <h1>It hasn't been built yet — <em>so India gets a say.</em></h1>
+      <p>A landmark AI Museum &amp; Innovation Experience Center is being designed for the next generation <strong>right now</strong>. Before the first brick is laid, your answers go on record — and help shape what India builds.</p>
+
+      <div class="intro-social" id="introSocial" hidden>
+        <span class="live-dot"></span>
+        <span id="introSocialText"></span>
+      </div>
+
+      <div class="final-actions">
+        <button class="btn btn-primary btn-lg" id="startBtn">
+          Add My Voice
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="/#/ai-museum" target="_top" class="btn btn-ghost">Read the Vision First</a>
+      </div>
+
+      <div class="intro-meta">
+        <span class="intro-chip">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3"/></svg>
+          10 quick questions
+        </span>
+        <span class="intro-chip">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.3"/><path d="M8 4.5V8l2.4 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Under 60 seconds
+        </span>
+        <span class="intro-chip">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M8 1.8l5 2v3.4c0 3-2.1 5.2-5 6.6-2.9-1.4-5-3.6-5-6.6V3.8l5-2z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          No sign-up needed
+        </span>
+      </div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="slide" data-q="1" data-key="monuments">
+      <div>
+        <div class="q-eyebrow">Question 01 of 10</div>
+        <h1 class="q-title">Do you believe India should create globally iconic innovation landmarks that become symbols of <em>national pride and technological leadership?</em></h1>
+        <p class="q-sub">Landmarks that the world remembers — and that India is proud to call its own.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Yes"><span class="dot"></span>Strongly Yes</button>
+          <button class="option" data-value="Yes"><span class="dot"></span>Yes</button>
+          <button class="option" data-value="Maybe"><span class="dot"></span>Maybe</button>
+          <button class="option" data-value="No"><span class="dot"></span>No</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <div class="q-emoji">🏛️</div>
+        <div class="q-visual-caption">
+          <span>Landmark · India</span>
+          <span class="dot-row"><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="slide" data-q="2" data-key="unique">
+      <div>
+        <div class="q-eyebrow">Question 02 of 10</div>
+        <h1 class="q-title">Do you believe the World's First Brain-Shaped AI Museum can inspire millions of students towards <em>Artificial Intelligence, Science, Innovation, and Entrepreneurship?</em></h1>
+        <p class="q-sub">A living laboratory built to spark the next generation of India's innovators.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Agree"><span class="dot"></span>Strongly Agree</button>
+          <button class="option" data-value="Agree"><span class="dot"></span>Agree</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Disagree"><span class="dot"></span>Disagree</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Brain · Inspire</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="slide" data-q="3" data-key="tourism">
+      <div>
+        <div class="q-eyebrow">Question 03 of 10</div>
+        <h1 class="q-title">Should India establish a world-class destination that celebrates the achievements of <em>scientists, innovators, entrepreneurs, industrialists, and nation-builders?</em></h1>
+        <p class="q-sub">A national tribute to the people who build, discover and lead.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Yes"><span class="dot"></span>Strongly Yes</button>
+          <button class="option" data-value="Yes"><span class="dot"></span>Yes</button>
+          <button class="option" data-value="Maybe"><span class="dot"></span>Maybe</button>
+          <button class="option" data-value="No"><span class="dot"></span>No</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Achievers · India</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="slide" data-q="4" data-key="inspire">
+      <div>
+        <div class="q-eyebrow">Question 04 of 10</div>
+        <h1 class="q-title">Do you believe this project can create significant direct and indirect <em>employment opportunities for Indian youth?</em></h1>
+        <p class="q-sub">Direct and indirect jobs — for builders, makers and dreamers across India.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Agree"><span class="dot"></span>Strongly Agree</button>
+          <button class="option" data-value="Agree"><span class="dot"></span>Agree</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Disagree"><span class="dot"></span>Disagree</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Jobs · Youth</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="slide" data-q="5" data-key="attraction">
+      <div>
+        <div class="q-eyebrow">Question 05 of 10</div>
+        <h1 class="q-title">Do you believe innovation-based tourism can become a major contributor to <em>India's economy and tourism revenue?</em></h1>
+        <p class="q-sub">A new pillar of the economy, drawing visitors and revenue from across the world.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Agree"><span class="dot"></span>Strongly Agree</button>
+          <button class="option" data-value="Agree"><span class="dot"></span>Agree</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Disagree"><span class="dot"></span>Disagree</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Tourism · Economy</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="slide" data-q="6" data-key="economy">
+      <div>
+        <div class="q-eyebrow">Question 06 of 10</div>
+        <h1 class="q-title">Do you feel this project aligns with the vision of <em>Viksit Bharat, Startup India, Make in India, Atmanirbhar Bharat, and Vocal for Local?</em></h1>
+        <p class="q-sub">One landmark, aligned with India's biggest nation-building missions.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Agree"><span class="dot"></span>Strongly Agree</button>
+          <button class="option" data-value="Agree"><span class="dot"></span>Agree</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Disagree"><span class="dot"></span>Disagree</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Viksit · Bharat</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="slide" data-q="7" data-key="support">
+      <div>
+        <div class="q-eyebrow">Question 07 of 10</div>
+        <h1 class="q-title">Do you believe such a landmark can strengthen India's global image as a hub for <em>innovation, technology, education, and entrepreneurship?</em></h1>
+        <p class="q-sub">A symbol that tells the world where India stands on innovation.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Agree"><span class="dot"></span>Strongly Agree</button>
+          <button class="option" data-value="Agree"><span class="dot"></span>Agree</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Disagree"><span class="dot"></span>Disagree</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Global · Hub</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8 -->
+    <div class="slide" data-q="8" data-key="visit">
+      <div>
+        <div class="q-eyebrow">Question 08 of 10</div>
+        <h1 class="q-title">Should governments actively support visionary projects that combine <em>education, tourism, innovation, employment generation, and nation-building?</em></h1>
+        <p class="q-sub">Nation-scale vision deserves nation-scale backing. Where do you stand?</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Yes"><span class="dot"></span>Strongly Yes</button>
+          <button class="option" data-value="Yes"><span class="dot"></span>Yes</button>
+          <button class="option" data-value="Maybe"><span class="dot"></span>Maybe</button>
+          <button class="option" data-value="No"><span class="dot"></span>No</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Vision · Support</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9 -->
+    <div class="slide" data-q="9" data-key="iconic">
+      <div>
+        <div class="q-eyebrow">Question 09 of 10</div>
+        <h1 class="q-title">Do you believe the World's First Brain-Shaped AI Museum can become one of India's most <em>iconic landmarks and a major international attraction?</em></h1>
+        <p class="q-sub">In the league of the world's great icons — should India have its own?</p>
+        <div class="options">
+          <button class="option" data-value="Definitely"><span class="dot"></span>Definitely</button>
+          <button class="option" data-value="Probably"><span class="dot"></span>Probably</button>
+          <button class="option" data-value="Maybe"><span class="dot"></span>Maybe</button>
+          <button class="option" data-value="No"><span class="dot"></span>No</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Iconic · Landmark</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10 -->
+    <div class="slide" data-q="10" data-key="represents">
+      <div>
+        <div class="q-eyebrow">Question 10 of 10</div>
+        <h1 class="q-title">Would you support the development of the World's First Brain-Shaped AI Museum &amp; Innovation Experience Centre as a <em>"Gift from India to the World"?</em></h1>
+        <p class="q-sub">India's gift to the world — a landmark for all of humanity.</p>
+        <div class="options">
+          <button class="option" data-value="Strongly Support"><span class="dot"></span>Strongly Support</button>
+          <button class="option" data-value="Support"><span class="dot"></span>Support</button>
+          <button class="option" data-value="Neutral"><span class="dot"></span>Neutral</button>
+          <button class="option" data-value="Oppose"><span class="dot"></span>Oppose</button>
+        </div>
+      </div>
+      <div class="q-visual">
+        <img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />
+        <div class="q-visual-caption">
+          <span>Gift · World</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS (inserted into the flow only when admin enables collection) -->
+    <div class="slide" data-q="details">
+      <div>
+        <div class="q-eyebrow">One last step</div>
+        <h1 class="q-title">A few details before we <em>record your voice.</em></h1>
+        <p class="q-sub">This helps us understand who is shaping this vision. Your details stay private.</p>
+        <div class="details-form">
+          <label class="field" id="field-name" style="display:none;">
+            <span class="field-label">Full Name<span class="req">*</span></span>
+            <input type="text" id="inp-name" autocomplete="name" placeholder="Your full name" />
+          </label>
+          <label class="field" id="field-designation" style="display:none;">
+            <span class="field-label">Designation<span class="req">*</span></span>
+            <input type="text" id="inp-designation" autocomplete="organization-title" placeholder="e.g. Student, Engineer, Entrepreneur, Educator" />
+          </label>
+          <label class="field" id="field-mobile" style="display:none;">
+            <span class="field-label">Mobile Number<span class="req">*</span></span>
+            <input type="tel" id="inp-mobile" autocomplete="tel" inputmode="numeric" placeholder="Your 10-digit mobile number" />
+          </label>
+          <div class="field-error" id="detailsError" style="display:none;"></div>
+        </div>
+      </div>
+      <div class="q-visual">
+        <div class="q-emoji">📝</div>
+        <div class="q-visual-caption">
+          <span>You · Your Voice</span>
+          <span class="dot-row"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DONE -->
+    <div class="slide final" data-q="done">
+      <div class="final-eyebrow">Your Voice · Recorded</div>
+      <h1>Thank you for shaping <em>Future India.</em></h1>
+      <p>Every response strengthens the case for a national landmark of innovation. We will carry your voice into the rooms where decisions are made — and back to the architects, scientists and builders of this campus.</p>
+      <div class="summary" id="summary"></div>
+      <div class="final-actions" style="margin-top: 14px;">
+        <a href="/#/ai-museum" target="_top" class="btn btn-primary">
+          Become a Patron
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <button class="btn" id="shareBtn">Share Poll</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTTOM NAV -->
+<div class="slide-nav" id="slideNav" style="display:none;">
+  <button class="btn" id="prevBtn">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M13 8H3M7 12l-4-4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Previous
+  </button>
+  <div class="q-counter"><strong id="qCurrent">1</strong> / 10 · Questions</div>
+  <button class="btn btn-primary" id="nextBtn" disabled>
+    Next
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</div>
+
+<script>
+(function() {
+  // ── API base URL (mirrors web_version/lib/connect_server) ──
+  const API_BASE = (function() {
+    try {
+      const h = window.location.hostname;
+      if (h === 'localhost' || h === '127.0.0.1') return 'http://localhost:3000';
+    } catch (_) {}
+    return 'https://api.ticgetz.com';
+  })();
+
+  const slidesContainer = document.getElementById('slides');
+  const introSlide = document.querySelector('.slide[data-q="intro"]');
+  const detailsSlide = document.querySelector('.slide[data-q="details"]');
+  const doneSlide = document.querySelector('.slide[data-q="done"]');
+  let slides = Array.from(document.querySelectorAll('.slide'));
+  let questionSlides = slides.filter(s => /^\d+$/.test(s.dataset.q));
+
+  const progressFill = document.getElementById('progressFill');
+  const qCurrent = document.getElementById('qCurrent');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const slideNav = document.getElementById('slideNav');
+  const startBtn = document.getElementById('startBtn');
+  const shareBtn = document.getElementById('shareBtn');
+  const summaryEl = document.getElementById('summary');
+
+  let index = -1; // -1 = intro, 0..N-1 = questions, [details], done
+  const answers = {};
+  let submitting = false;
+  let submitted = false;
+
+  // ── optional respondent details (admin-toggled via /museumpoll/config) ──
+  // Which fields to ask for, and the captured values.
+  const collectFields = { name: false, mobile: false, designation: false };
+  const details = { name: '', mobile: '', designation: '' };
+  function needDetails() {
+    return collectFields.name || collectFields.mobile || collectFields.designation;
+  }
+
+  // ── persistent device-level submission id ──
+  function getSubmissionId() {
+    try {
+      let id = localStorage.getItem('ticgetz_museum_poll_sid');
+      if (!id) {
+        id = (crypto && crypto.randomUUID) ? crypto.randomUUID() :
+             ('sid_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10));
+        localStorage.setItem('ticgetz_museum_poll_sid', id);
+      }
+      return id;
+    } catch (_) {
+      return 'sid_' + Date.now() + '_' + Math.random().toString(36).slice(2, 10);
+    }
+  }
+
+  // ── Build a question slide DOM node from API data ──
+  function buildQuestionSlide(q, i, total) {
+    const order = String(i + 1).padStart(2, '0');
+    const totalStr = String(total).padStart(2, '0');
+    const slide = document.createElement('div');
+    slide.className = 'slide';
+    slide.dataset.q = String(i + 1);
+    slide.dataset.key = q.key;
+
+    const optionsCols = (q.options && q.options.length > 4) ? 'single' : '';
+    const headlineHtml = q.headlineEmphasis
+      ? `${escapeHtml(q.headline)} <em>${escapeHtml(q.headlineEmphasis)}</em>`
+      : escapeHtml(q.headline);
+
+    let dots = '';
+    for (let d = 0; d < total; d++) {
+      dots += `<span class="${d <= i ? 'on' : ''}"></span>`;
+    }
+
+    const optionButtons = (q.options || []).map(o =>
+      `<button class="option" data-value="${escapeHtml(o)}"><span class="dot"></span>${escapeHtml(o)}</button>`
+    ).join('');
+
+    slide.innerHTML = `
+      <div>
+        <div class="q-eyebrow">${escapeHtml(q.eyebrow || `Question ${order} of ${totalStr}`)}</div>
+        <h1 class="q-title">${headlineHtml}</h1>
+        <p class="q-sub">${escapeHtml(q.sub || '')}</p>
+        <div class="options ${optionsCols}">${optionButtons}</div>
+      </div>
+      <div class="q-visual">
+        ${i === 0
+          ? `<div class="q-emoji">${escapeHtml(q.emoji || '✨')}</div>`
+          : `<img class="q-emoji-img" src="/assets/assets/barin_dome_tower.png" alt="" />`}
+        <div class="q-visual-caption">
+          <span>${escapeHtml(q.captionLeft || '')}</span>
+          <span class="dot-row">${dots}</span>
+        </div>
+      </div>
+    `;
+    return slide;
+  }
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  // ── Replace static question slides with API-provided ones ──
+  function rebuildSlidesFrom(questions) {
+    // remove existing question slides
+    document.querySelectorAll('.slide[data-q]').forEach(s => {
+      if (/^\d+$/.test(s.dataset.q)) s.parentElement.removeChild(s);
+    });
+    // insert new ones before the DETAILS slide (which sits just before DONE)
+    const anchor = detailsSlide || doneSlide;
+    questions.forEach((q, i) => {
+      const node = buildQuestionSlide(q, i, questions.length);
+      slidesContainer.insertBefore(node, anchor);
+    });
+    // refresh refs
+    slides = Array.from(document.querySelectorAll('.slide'));
+    questionSlides = slides.filter(s => /^\d+$/.test(s.dataset.q));
+    attachOptionHandlers();
+    // also update the static counter "X / 10" display
+    document.querySelectorAll('.q-counter').forEach(el => {
+      const total = questionSlides.length;
+      el.innerHTML = `<strong id="qCurrent">1</strong> / ${total} · Questions`;
+    });
+  }
+
+  function attachOptionHandlers() {
+    questionSlides.forEach(slide => {
+      const key = slide.dataset.key;
+      slide.querySelectorAll('.option').forEach(btn => {
+        btn.addEventListener('click', () => {
+          slide.querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+          btn.classList.add('selected');
+          answers[key] = btn.dataset.value;
+          nextBtn.disabled = false;
+          if (index < questionSlides.length - 1) {
+            setTimeout(() => { if (answers[key] === btn.dataset.value) show(index + 1); }, 360);
+          }
+        });
+      });
+    });
+  }
+
+  function show(i) {
+    slides.forEach(s => s.classList.remove('active'));
+    const qCount = questionSlides.length;
+    const arrow = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    if (i === -1) {
+      introSlide.classList.add('active');
+      slideNav.style.display = 'none';
+      progressFill.style.width = '0%';
+    } else if (i >= 0 && i < qCount) {
+      const slide = questionSlides[i];
+      slide.classList.add('active');
+      const contentCol = slide.firstElementChild;
+      if (contentCol && slideNav.parentElement !== contentCol) {
+        contentCol.appendChild(slideNav);
+      }
+      slideNav.style.display = 'flex';
+      const qCurrentEl = document.getElementById('qCurrent');
+      if (qCurrentEl) qCurrentEl.textContent = (i + 1);
+      progressFill.style.width = ((i + 1) / qCount * 100) + '%';
+      prevBtn.disabled = (i === 0);
+      const key = slide.dataset.key;
+      nextBtn.disabled = !answers[key];
+      // The last question submits directly unless we still need to collect
+      // respondent details, in which case it advances to the details step.
+      const isLastQuestion = (i === qCount - 1);
+      nextBtn.innerHTML = ((isLastQuestion && !needDetails()) ? 'Submit ' : 'Next ') + arrow;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (i === qCount && needDetails()) {
+      detailsSlide.classList.add('active');
+      const contentCol = detailsSlide.firstElementChild;
+      if (contentCol && slideNav.parentElement !== contentCol) {
+        contentCol.appendChild(slideNav);
+      }
+      slideNav.style.display = 'flex';
+      progressFill.style.width = '100%';
+      prevBtn.disabled = false;
+      nextBtn.disabled = false;
+      nextBtn.innerHTML = 'Submit ' + arrow;
+      const firstField = Array.from(detailsSlide.querySelectorAll('.field'))
+        .find(f => f.style.display !== 'none');
+      const firstInput = firstField && firstField.querySelector('input');
+      if (firstInput) setTimeout(() => firstInput.focus(), 80);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      doneSlide.classList.add('active');
+      slideNav.style.display = 'none';
+      progressFill.style.width = '100%';
+      if (!submitted && !submitting) submitToServer();
+      renderSummary();
+    }
+    index = i;
+  }
+
+  // ── Show/hide detail fields per admin config ──
+  function applyDetailsVisibility() {
+    const map = {
+      'field-name': collectFields.name,
+      'field-mobile': collectFields.mobile,
+      'field-designation': collectFields.designation,
+    };
+    Object.keys(map).forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = map[id] ? 'flex' : 'none';
+    });
+  }
+
+  // ── Validate + capture the details step. Returns true when OK to proceed. ──
+  function captureDetails() {
+    const errEl = document.getElementById('detailsError');
+    const inpName = document.getElementById('inp-name');
+    const inpMobile = document.getElementById('inp-mobile');
+    const inpDesignation = document.getElementById('inp-designation');
+    [inpName, inpMobile, inpDesignation].forEach(el => el && el.classList.remove('invalid'));
+
+    let firstError = '';
+    let firstBad = null;
+    if (collectFields.name && !inpName.value.trim()) {
+      firstError = firstError || 'Please enter your name.';
+      firstBad = firstBad || inpName;
+    }
+    if (collectFields.designation && !inpDesignation.value.trim()) {
+      firstError = firstError || 'Please enter your designation.';
+      firstBad = firstBad || inpDesignation;
+    }
+    if (collectFields.mobile) {
+      const digits = (inpMobile.value || '').replace(/\D/g, '');
+      if (digits.length < 7) {
+        firstError = firstError || 'Please enter a valid mobile number.';
+        firstBad = firstBad || inpMobile;
+      }
+    }
+
+    if (firstError) {
+      if (firstBad) firstBad.classList.add('invalid');
+      errEl.textContent = firstError;
+      errEl.style.display = 'block';
+      if (firstBad) firstBad.focus();
+      return false;
+    }
+    errEl.style.display = 'none';
+    details.name = collectFields.name ? inpName.value.trim().slice(0, 120) : '';
+    details.mobile = collectFields.mobile ? inpMobile.value.trim().slice(0, 20) : '';
+    details.designation = collectFields.designation ? inpDesignation.value.trim().slice(0, 120) : '';
+    return true;
+  }
+
+  async function submitToServer() {
+    submitting = true;
+    try {
+      const payload = {
+        submissionId: getSubmissionId(),
+        answers,
+        locale: navigator.language || '',
+        name: details.name,
+        mobile: details.mobile,
+        designation: details.designation,
+      };
+      const r = await fetch(API_BASE + '/museumpoll/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const j = await r.json().catch(() => ({}));
+      submitted = !!(j && j.success);
+    } catch (e) {
+      // keep response in localStorage so it can be re-submitted later if needed
+      console.warn('Poll submit failed:', e && e.message);
+    } finally {
+      submitting = false;
+    }
+  }
+
+  function renderSummary() {
+    // build label map from current question slides: shorten by using emphasis or
+    // full headline trimmed to 64 chars
+    const labels = {};
+    questionSlides.forEach(s => {
+      const key = s.dataset.key;
+      const emph = s.querySelector('.q-title em');
+      const title = s.querySelector('.q-title');
+      let label = '';
+      if (emph && emph.textContent.trim()) label = emph.textContent.trim();
+      else if (title) label = title.textContent.trim();
+      if (label.length > 70) label = label.slice(0, 67) + '…';
+      labels[key] = label || key;
+    });
+
+    summaryEl.innerHTML = '';
+    Object.keys(labels).forEach(k => {
+      if (!answers[k]) return;
+      const row = document.createElement('div');
+      row.className = 'summary-row';
+      row.innerHTML = `<div class="k">${escapeHtml(labels[k])}</div><div class="v">${escapeHtml(answers[k])}</div>`;
+      summaryEl.appendChild(row);
+    });
+
+    // persist locally so a refresh doesn't wipe responses
+    try {
+      const payload = { ts: Date.now(), answers };
+      localStorage.setItem('ticgetz_ai_museum_poll', JSON.stringify(payload));
+    } catch (e) { /* ignore */ }
+  }
+
+  // attach handlers to the static (fallback) question slides
+  attachOptionHandlers();
+
+  startBtn && startBtn.addEventListener('click', () => show(0));
+  prevBtn.addEventListener('click', () => { if (index > 0) show(index - 1); });
+  nextBtn.addEventListener('click', () => {
+    // On the details step, validate + capture before advancing to submit.
+    if (index === questionSlides.length && needDetails()) {
+      if (!captureDetails()) return;
+    }
+    show(index + 1);
+  });
+  shareBtn && shareBtn.addEventListener('click', async () => {
+    // Use the API-hosted share URL so WhatsApp/Facebook/Slack get proper OG previews.
+    // On localhost we fall back to the dev host so testers can still share.
+    const apiBase = (location.hostname === 'localhost' || location.hostname === '127.0.0.1')
+      ? 'http://localhost:3000'
+      : 'https://api.ticgetz.com';
+    const url = apiBase + '/ai-museum/poll';
+    const text = 'Make your voice heard. India’s first Brain-Shaped AI Museum.';
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: 'Ticgetz · Public Opinion Poll', text, url });
+      } else if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+        shareBtn.textContent = 'Link Copied';
+        setTimeout(() => { shareBtn.textContent = 'Share Poll'; }, 1800);
+      }
+    } catch (e) { /* user cancelled */ }
+  });
+
+  // keyboard
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' && index >= 0 && index < questionSlides.length && !nextBtn.disabled) show(index + 1);
+    if (e.key === 'ArrowLeft' && index > 0) show(index - 1);
+    if (e.key === 'Enter' && index === -1) show(0);
+    // Enter on the details step submits it (mirrors the Submit button).
+    if (e.key === 'Enter' && index === questionSlides.length && needDetails()) {
+      if (captureDetails()) show(index + 1);
+    }
+  });
+
+  // ── fetch which respondent details to collect (admin-toggled) ──
+  async function loadConfig() {
+    try {
+      const r = await fetch(API_BASE + '/museumpoll/config', { method: 'GET' });
+      const j = await r.json();
+      if (j && j.success && j.data) {
+        collectFields.name = !!j.data.collectName;
+        collectFields.mobile = !!j.data.collectMobile;
+        collectFields.designation = !!j.data.collectDesignation;
+      }
+    } catch (e) {
+      console.warn('Poll config fetch failed:', e && e.message);
+    }
+    applyDetailsVisibility();
+  }
+
+  // ── live social proof: only reveal once enough real responses exist ──
+  // (showing "2 voices" would undercut trust, so we gate on a sensible floor)
+  async function loadSocialProof() {
+    const SOCIAL_FLOOR = 50;
+    const wrap = document.getElementById('introSocial');
+    const textEl = document.getElementById('introSocialText');
+    if (!wrap || !textEl) return;
+    try {
+      const r = await fetch(API_BASE + '/museumpoll/count', { method: 'GET' });
+      const j = await r.json();
+      const count = j && j.success && j.data ? Number(j.data.count) : 0;
+      if (!count || count < SOCIAL_FLOOR) return;
+
+      const fmt = (n) => n.toLocaleString('en-IN');
+      textEl.innerHTML = '<strong>' + fmt(count) + '</strong>&nbsp;voices already added';
+      wrap.hidden = false;
+
+      // gentle count-up so the number reads as "live" (skip if reduced motion)
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const strongEl = textEl.querySelector('strong');
+      if (reduce || !strongEl) return;
+      const dur = 1100, t0 = performance.now();
+      (function tick(t) {
+        const p = Math.min(1, (t - t0) / dur);
+        const eased = 1 - Math.pow(1 - p, 3);
+        strongEl.textContent = fmt(Math.round(count * eased));
+        if (p < 1) requestAnimationFrame(tick);
+      })(t0);
+    } catch (e) {
+      console.warn('Poll count fetch failed:', e && e.message);
+    }
+  }
+  loadSocialProof();
+
+  // ── fetch questions + config, then start ──
+  (async function loadQuestions() {
+    try {
+      const [qRes] = await Promise.all([
+        fetch(API_BASE + '/museumpoll/questions', { method: 'GET' }).then(r => r.json()),
+        loadConfig(),
+      ]);
+      if (qRes && qRes.success && Array.isArray(qRes.data) && qRes.data.length > 0) {
+        rebuildSlidesFrom(qRes.data);
+      }
+    } catch (e) {
+      console.warn('Poll questions fetch failed, using fallback:', e && e.message);
+    } finally {
+      show(-1);
+    }
+  })();
+})();
+</script>
+</body>
+</html>
